@@ -14,7 +14,7 @@ const app = express();
 // Connect to Database
 connectDB();
 
-const allowedOrigins = (process.env.CLIENT_URL || "").split(",").map((s) => s.trim()).filter(Boolean);
+const allowedOrigins = (process.env.CLIENT_URL || "").split(",").map((s) => s.trim().replace(/\/$/, "")).filter(Boolean);
 
 const corsOptions = {
     origin(origin, cb) {
